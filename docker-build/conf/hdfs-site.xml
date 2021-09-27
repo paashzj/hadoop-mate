@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- Configurations for NameNode: -->
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/opt/sh/hadoop/hdfs/name/</value>
+  </property>
+
+  <property>
+    <name>dfs.blocksize</name>
+    <value>268435456</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.handler.count  </name>
+    <value>100</value>
+  </property>
+
+  <!-- Configurations for DataNode: -->
+
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/opt/sh/hadoop/hdfs/data/</value>
+  </property>
+
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.http-address</name>
+    <value>hadoop-name:9870</value>
+  </property>
+</configuration>
