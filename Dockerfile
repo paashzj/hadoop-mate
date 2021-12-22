@@ -17,4 +17,4 @@ COPY docker-build /opt/sh/hadoop/mate
 
 WORKDIR /opt/sh/hadoop
 
-CMD ["/usr/local/bin/dumb-init", "bash", "-vx","/opt/sh/hadoop/mate/scripts/start.sh"]
+CMD ["/usr/bin/dumb-init", "bash", "-vx","/opt/sh/hadoop/mate/scripts/start.sh"]
