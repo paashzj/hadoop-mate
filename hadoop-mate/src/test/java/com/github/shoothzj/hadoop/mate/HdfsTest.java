@@ -4,10 +4,10 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.MiniDFSCluster;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -22,7 +22,7 @@ public class HdfsTest {
 
     String hdfsUrl;
 
-    @BeforeMethod
+    @BeforeEach
     public void init() throws Exception {
         File baseDir = Files.createTempDirectory("hadoop").toFile().getAbsoluteFile();
         Configuration conf = new Configuration();
@@ -37,7 +37,7 @@ public class HdfsTest {
         FileSystem fileSystem = FileSystem.get(acquireConfig());
         Path path = new Path("/hdfs/file-create");
         fileSystem.create(path);
-        Assert.assertTrue(fileSystem.exists(path));
+        Assertions.assertTrue(fileSystem.exists(path));
     }
 
     private Configuration acquireConfig() {
@@ -46,7 +46,7 @@ public class HdfsTest {
         return configuration;
     }
 
-    @AfterMethod
+    @AfterEach
     public void tearDown() {
         hdfsCluster.shutdown(true, true);
         hdfsCluster.close();
